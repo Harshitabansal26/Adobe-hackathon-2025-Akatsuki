@@ -199,7 +199,13 @@
         <div class="header">
             <h1>🚀 PDF Intelligence</h1>
             <p>Adobe Hackathon 2025 - Team Akatsuki</p>
-            <p>Upload PDFs and get instant AI-powered analysis</p>
+            <p>Interactive Demo - Upload PDFs and see sample AI-powered analysis</p>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(255, 255, 255, 0.2);">
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
+                    <strong>Demo Mode:</strong> This interface shows sample results to demonstrate our PDF processing capabilities.
+                    The full application processes real PDFs using PyMuPDF and advanced NLP algorithms.
+                </p>
+            </div>
         </div>
         
         <div class="tools">
@@ -260,92 +266,194 @@
     </div>
     
     <script>
-        // Round 1A: PDF Outline Extraction
+        // Round 1A: PDF Outline Extraction - DEMO VERSION
         document.getElementById('outlineForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const btn = document.getElementById('extractBtn');
             const results = document.getElementById('results');
             const resultsTitle = document.getElementById('resultsTitle');
             const resultsContent = document.getElementById('resultsContent');
-            
+            const fileInput = document.getElementById('pdfFile');
+
+            if (!fileInput.files[0]) {
+                alert('Please select a PDF file first!');
+                return;
+            }
+
             // Show loading
             btn.disabled = true;
             btn.textContent = 'Processing...';
             results.style.display = 'block';
             resultsTitle.textContent = 'Extracting PDF Outline...';
             resultsContent.innerHTML = '<div class="loading"><div class="spinner"></div>Processing your PDF...</div>';
-            
-            try {
-                const formData = new FormData(this);
-                const response = await fetch('/extract-outline', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                if (response.ok) {
-                    resultsTitle.textContent = '📄 PDF Outline Results';
-                    resultsContent.innerHTML = `
-                        <div class="success">Successfully extracted outline with ${result.outline.length} headings!</div>
-                        <div class="json-output">${JSON.stringify(result, null, 2)}</div>
-                    `;
-                } else {
-                    resultsTitle.textContent = 'Error';
-                    resultsContent.innerHTML = `<div class="error">${result.error}</div>`;
-                }
-            } catch (error) {
-                resultsTitle.textContent = 'Error';
-                resultsContent.innerHTML = `<div class="error">Network error: ${error.message}</div>`;
-            } finally {
+
+            // Simulate processing time
+            setTimeout(() => {
+                const sampleResult = {
+                    "title": fileInput.files[0].name.replace('.pdf', ''),
+                    "outline": [
+                        {
+                            "level": "H1",
+                            "text": "Introduction",
+                            "page": 1
+                        },
+                        {
+                            "level": "H2",
+                            "text": "Background and Motivation",
+                            "page": 2
+                        },
+                        {
+                            "level": "H2",
+                            "text": "Related Work",
+                            "page": 4
+                        },
+                        {
+                            "level": "H1",
+                            "text": "Methodology",
+                            "page": 6
+                        },
+                        {
+                            "level": "H2",
+                            "text": "Data Collection",
+                            "page": 7
+                        },
+                        {
+                            "level": "H2",
+                            "text": "Analysis Framework",
+                            "page": 9
+                        },
+                        {
+                            "level": "H3",
+                            "text": "Statistical Methods",
+                            "page": 10
+                        },
+                        {
+                            "level": "H1",
+                            "text": "Results",
+                            "page": 12
+                        },
+                        {
+                            "level": "H2",
+                            "text": "Performance Evaluation",
+                            "page": 13
+                        },
+                        {
+                            "level": "H1",
+                            "text": "Conclusion",
+                            "page": 16
+                        }
+                    ]
+                };
+
+                resultsTitle.textContent = '📄 PDF Outline Results (Demo)';
+                resultsContent.innerHTML = `
+                    <div class="success">✨ Demo: Successfully extracted outline with ${sampleResult.outline.length} headings from "${fileInput.files[0].name}"!</div>
+                    <p style="margin: 1rem 0; padding: 1rem; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; color: #856404;">
+                        <strong>Note:</strong> This is a demo version. In the full application, your PDF would be processed using PyMuPDF and intelligent heading detection algorithms.
+                    </p>
+                    <div class="json-output">${JSON.stringify(sampleResult, null, 2)}</div>
+                `;
+
                 btn.disabled = false;
                 btn.textContent = 'Extract Outline';
-            }
+            }, 2000);
         });
         
-        // Round 1B: Persona-Driven Analysis
+        // Round 1B: Persona-Driven Analysis - DEMO VERSION
         document.getElementById('personaForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const btn = document.getElementById('analyzeBtn');
             const results = document.getElementById('results');
             const resultsTitle = document.getElementById('resultsTitle');
             const resultsContent = document.getElementById('resultsContent');
-            
+            const personaInput = document.getElementById('personaInput');
+            const jobInput = document.getElementById('jobInput');
+            const filesInput = document.getElementById('pdfFiles');
+
+            if (!personaInput.value || !jobInput.value || !filesInput.files.length) {
+                alert('Please fill in all fields and select PDF files!');
+                return;
+            }
+
             // Show loading
             btn.disabled = true;
             btn.textContent = 'Analyzing...';
             results.style.display = 'block';
             resultsTitle.textContent = 'Analyzing Documents...';
             resultsContent.innerHTML = '<div class="loading"><div class="spinner"></div>Processing your documents with persona analysis...</div>';
-            
-            try {
-                const formData = new FormData(this);
-                const response = await fetch('/persona-analysis', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                if (response.ok) {
-                    resultsTitle.textContent = '🧠 Persona Analysis Results';
-                    resultsContent.innerHTML = `
-                        <div class="success">Successfully analyzed ${result.metadata.input_documents.length} documents and found ${result.extracted_sections.length} relevant sections!</div>
-                        <div class="json-output">${JSON.stringify(result, null, 2)}</div>
-                    `;
-                } else {
-                    resultsTitle.textContent = 'Error';
-                    resultsContent.innerHTML = `<div class="error">${result.error}</div>`;
-                }
-            } catch (error) {
-                resultsTitle.textContent = 'Error';
-                resultsContent.innerHTML = `<div class="error">Network error: ${error.message}</div>`;
-            } finally {
+
+            // Simulate processing time
+            setTimeout(() => {
+                const fileNames = Array.from(filesInput.files).map(f => f.name);
+                const sampleResult = {
+                    "metadata": {
+                        "input_documents": fileNames,
+                        "persona": personaInput.value,
+                        "job_to_be_done": jobInput.value,
+                        "processing_timestamp": new Date().toISOString()
+                    },
+                    "extracted_sections": [
+                        {
+                            "document": fileNames[0] || "document1.pdf",
+                            "page_number": 3,
+                            "section_title": "Methodology and Approach",
+                            "importance_rank": 1
+                        },
+                        {
+                            "document": fileNames[1] || "document2.pdf",
+                            "page_number": 5,
+                            "section_title": "Data Analysis Framework",
+                            "importance_rank": 2
+                        },
+                        {
+                            "document": fileNames[0] || "document1.pdf",
+                            "page_number": 8,
+                            "section_title": "Performance Evaluation",
+                            "importance_rank": 3
+                        },
+                        {
+                            "document": fileNames[2] || "document3.pdf",
+                            "page_number": 2,
+                            "section_title": "Literature Review",
+                            "importance_rank": 4
+                        }
+                    ],
+                    "subsection_analysis": [
+                        {
+                            "document": fileNames[0] || "document1.pdf",
+                            "page_number": 3,
+                            "refined_text": "Our methodology combines quantitative analysis with qualitative insights to provide comprehensive understanding of the research domain.",
+                            "relevance_score": 0.95
+                        },
+                        {
+                            "document": fileNames[1] || "document2.pdf",
+                            "page_number": 5,
+                            "refined_text": "The data analysis framework incorporates machine learning techniques specifically tailored for the identified research objectives.",
+                            "relevance_score": 0.88
+                        },
+                        {
+                            "document": fileNames[0] || "document1.pdf",
+                            "page_number": 8,
+                            "refined_text": "Performance evaluation demonstrates significant improvements over baseline methods with statistical significance p < 0.001.",
+                            "relevance_score": 0.92
+                        }
+                    ]
+                };
+
+                resultsTitle.textContent = '🧠 Persona Analysis Results (Demo)';
+                resultsContent.innerHTML = `
+                    <div class="success">✨ Demo: Successfully analyzed ${fileNames.length} documents and found ${sampleResult.extracted_sections.length} relevant sections for "${personaInput.value}"!</div>
+                    <p style="margin: 1rem 0; padding: 1rem; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; color: #856404;">
+                        <strong>Note:</strong> This is a demo version. In the full application, your documents would be processed using NLP algorithms and persona-specific relevance scoring.
+                    </p>
+                    <div class="json-output">${JSON.stringify(sampleResult, null, 2)}</div>
+                `;
+
                 btn.disabled = false;
                 btn.textContent = 'Analyze Documents';
-            }
+            }, 3000);
         });
         
         // File input feedback
