@@ -1,0 +1,11 @@
+{
+  "documents": [
+    "/app/input/organic_chemistry_ch1.pdf",
+    "/app/input/organic_chemistry_ch2.pdf",
+    "/app/input/organic_chemistry_ch3.pdf",
+    "/app/input/organic_chemistry_ch4.pdf",
+    "/app/input/organic_chemistry_ch5.pdf"
+  ],
+  "persona": "Undergraduate Chemistry Student preparing for final examinations",
+  "job_to_be_done": "Identify key concepts and mechanisms for exam preparation on reaction kinetics, focusing on fundamental principles and important examples"
+}

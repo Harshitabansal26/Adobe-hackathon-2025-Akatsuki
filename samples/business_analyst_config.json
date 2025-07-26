@@ -1,0 +1,9 @@
+{
+  "documents": [
+    "/app/input/annual_report_2022.pdf",
+    "/app/input/annual_report_2023.pdf",
+    "/app/input/annual_report_2024.pdf"
+  ],
+  "persona": "Investment Analyst specializing in technology sector evaluation",
+  "job_to_be_done": "Analyze revenue trends, R&D investments, and market positioning strategies across three years of financial reports"
+}

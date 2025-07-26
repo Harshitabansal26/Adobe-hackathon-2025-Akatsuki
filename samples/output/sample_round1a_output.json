@@ -1,0 +1,70 @@
+{
+  "title": "Understanding AI: A Comprehensive Guide",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Introduction to Artificial Intelligence",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "What is AI?",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "History of AI Development",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "Types of AI Systems",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "Machine Learning Fundamentals",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Supervised Learning",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Unsupervised Learning",
+      "page": 7
+    },
+    {
+      "level": "H1",
+      "text": "Applications of AI",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "Healthcare Applications",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "Financial Services",
+      "page": 11
+    },
+    {
+      "level": "H1",
+      "text": "Future of AI",
+      "page": 13
+    },
+    {
+      "level": "H2",
+      "text": "Emerging Trends",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Ethical Considerations",
+      "page": 16
+    }
+  ]
+}
