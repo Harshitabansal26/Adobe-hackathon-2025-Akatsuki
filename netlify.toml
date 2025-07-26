@@ -1,0 +1,16 @@
+[build]
+  # No build command needed - this is a static site
+  command = ""
+  
+  # Publish the root directory
+  publish = "."
+
+[build.environment]
+  # Skip Python builds
+  SKIP_PYTHON_BUILD = "true"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
