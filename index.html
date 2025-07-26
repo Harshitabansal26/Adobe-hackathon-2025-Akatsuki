@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Hackathon 2025 - Team Akatsuki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .performance-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px 0;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎯 Adobe Hackathon 2025</h1>
+            <p>Team Akatsuki - "Connecting the Dots" Challenge</p>
+        </header>
+        
+        <main class="main-content">
+            <section class="section">
+                <h2>🚀 Project Overview</h2>
+                <p>We've built an intelligent PDF analysis system that reimagines how we read and understand documents. Our solution combines advanced document processing with persona-driven intelligence to extract meaningful insights from PDF collections.</p>
+                
+                <div class="performance-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">&lt;10s</span>
+                        <span class="stat-label">PDF Processing Time</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Offline Operation</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">AMD64</span>
+                        <span class="stat-label">Compatible</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Complete Solutions</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>🎯 Challenge Solutions</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>📄 Round 1A: PDF Outline Extraction</h3>
+                        <p>Intelligent extraction of structured outlines (Title, H1, H2, H3) from PDF documents using advanced font analysis and pattern recognition.</p>
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li>Multi-factor heading detection</li>
+                            <li>Multilingual support</li>
+                            <li>Performance optimized (&lt;10s for 50 pages)</li>
+                            <li>Robust title extraction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🧠 Round 1B: Persona-Driven Intelligence</h3>
+                        <p>Smart document analyst that extracts and prioritizes relevant sections based on user persona and specific job requirements.</p>
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li>Persona-aware content analysis</li>
+                            <li>Multi-document processing</li>
+                            <li>Intelligent section ranking</li>
+                            <li>Subsection refinement</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>⚡ Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🎯 Intelligent Analysis</h3>
+                        <p>Advanced algorithms that understand document structure and content relevance without relying on heavy ML models.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🚀 High Performance</h3>
+                        <p>Optimized for speed with sub-10-second processing for large PDFs and efficient memory usage.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🌐 Offline Ready</h3>
+                        <p>Complete offline operation with no internet dependencies, perfect for secure environments.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🐳 Docker Optimized</h3>
+                        <p>Production-ready Docker containers with AMD64 compatibility and minimal resource requirements.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>🛠️ Technology Stack</h2>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python 3.9</span>
+                    <span class="tech-tag">PyMuPDF</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">NLTK</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">AMD64</span>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>🚀 Quick Start</h2>
+                <p>Get started with our solution in just a few commands:</p>
+                
+                <div class="code-block">
+# Clone the repository
+git clone https://github.com/Harshitabansal26/Adobe-hackathon-2025-Akatsuki.git
+cd Adobe-hackathon-2025-Akatsuki
+
+# Build Round 1A - PDF Outline Extraction
+cd round1a
+docker build --platform linux/amd64 -t pdf-outline-extractor .
+docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none pdf-outline-extractor
+
+# Build Round 1B - Persona Intelligence
+cd ../round1b
+docker build --platform linux/amd64 -t persona-intelligence .
+docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none persona-intelligence
+                </div>
+            </section>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/Harshitabansal26/Adobe-hackathon-2025-Akatsuki" class="btn btn-primary" target="_blank">
+                    📂 View Source Code
+                </a>
+                <a href="https://github.com/Harshitabansal26/Adobe-hackathon-2025-Akatsuki/blob/main/docs/approach_explanation.md" class="btn btn-secondary" target="_blank">
+                    📖 Read Documentation
+                </a>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>Built with ❤️ by Team Akatsuki for Adobe Hackathon 2025</p>
+            <p>"Connecting the Dots" Challenge - Reimagining PDF Intelligence</p>
+        </footer>
+    </div>
+</body>
+</html>
