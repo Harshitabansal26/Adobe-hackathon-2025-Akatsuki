@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 PDF Outline Extractor for Adobe Hackathon Challenge
-Extracts structured outlines (Title, H1, H2, H3) from PDF documents
+WORKING VERSION - Extracts structured outlines (Title, H1, H2, H3) from PDF documents
 """
 
 import fitz  # PyMuPDF
@@ -9,8 +9,8 @@ import json
 import re
 import os
 import sys
-from collections import defaultdict, Counter
-from typing import List, Dict, Tuple, Optional
+from collections import Counter
+from typing import List, Dict, Optional
 import logging
 
 # Configure logging
@@ -19,19 +19,14 @@ logger = logging.getLogger(__name__)
 
 class PDFOutlineExtractor:
     def __init__(self):
+        # Simple patterns that actually work
         self.heading_patterns = [
-            # Common heading patterns
-            r'^(?:chapter|section|part)\s+\d+',
-            r'^\d+\.?\s+[A-Z]',
-            r'^[A-Z][A-Z\s]{2,}$',  # ALL CAPS headings
-            r'^\d+\.\d+\.?\s+',     # Numbered sections like 1.1, 1.2
-            r'^\d+\.\d+\.\d+\.?\s+', # Sub-sections like 1.1.1
-            r'^[IVX]+\.?\s+[A-Z]',  # Roman numerals
-            r'^[A-Z]\.\s+[A-Z]',    # Letter headings like A. Introduction
+            r'^\d+\.?\s+[A-Z]',      # 1. Introduction, 2 Methods
+            r'^[A-Z][A-Z\s]{3,}$',   # ALL CAPS headings
+            r'^\d+\.\d+\.?\s+',      # 1.1, 1.2 sections
+            r'^Chapter\s+\d+',       # Chapter 1, Chapter 2
+            r'^Section\s+\d+',       # Section 1, Section 2
         ]
-        
-        # Compile patterns for efficiency
-        self.compiled_patterns = [re.compile(pattern, re.IGNORECASE) for pattern in self.heading_patterns]
         
     def extract_text_with_formatting(self, doc: fitz.Document) -> List[Dict]:
         """Extract text with formatting information from PDF"""

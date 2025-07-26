@@ -24,4 +24,4 @@ RUN mkdir -p /app/input /app/output
 RUN chmod +x src/pdf_outline_extractor.py
 
 # Set the default command
-CMD ["python", "src/pdf_outline_extractor.py"]
+CMD ["python", "src/simple_extractor.py"]

@@ -27,4 +27,4 @@ RUN mkdir -p /app/input /app/output
 RUN chmod +x src/persona_intelligence.py
 
 # Set the default command
-CMD ["python", "src/persona_intelligence.py"]
+CMD ["python", "src/simple_persona.py"]
