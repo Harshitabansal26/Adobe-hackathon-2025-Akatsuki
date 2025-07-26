@@ -260,11 +260,11 @@
             <p style="font-size: 1.2rem; opacity: 0.8;">Reimagining document analysis with AI-powered extraction and persona-driven intelligence</p>
             
             <div class="cta-buttons">
-                <a href="https://github.com/Harshitabansal26/Adobe-hackathon-2025-Akatsuki" class="btn btn-primary" target="_blank">
-                    📂 View Code
+                <a href="templates/webapp.html" class="btn btn-primary">
+                    🚀 Try Live Demo
                 </a>
-                <a href="#demo" class="btn btn-secondary">
-                    🎬 See Demo
+                <a href="https://github.com/Harshitabansal26/Adobe-hackathon-2025-Akatsuki" class="btn btn-secondary" target="_blank">
+                    📂 View Code
                 </a>
             </div>
         </div>
@@ -332,22 +332,31 @@
     </section>
     
     <section class="section" id="demo">
-        <h2>🎬 Quick Start</h2>
+        <h2>🎬 Try It Live</h2>
         <div class="demo-section">
-            <h3>Round 1A - PDF Outline Extraction</h3>
+            <h3>🌐 Web Interface</h3>
+            <p>Upload your PDFs and get instant results through our web interface:</p>
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="templates/webapp.html" class="btn btn-primary" style="display: inline-block; text-decoration: none;">
+                    🚀 Launch Web App
+                </a>
+            </div>
+
+            <h3>🐳 Docker Commands</h3>
             <div class="code-block">
 # Build and run Round 1A
 cd round1a
 docker build --platform linux/amd64 -t pdf-extractor .
 docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none pdf-extractor
-            </div>
-            
-            <h3>Round 1B - Persona Intelligence</h3>
-            <div class="code-block">
+
 # Build and run Round 1B
 cd round1b
 docker build --platform linux/amd64 -t persona-ai .
 docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none persona-ai
+
+# Run Web Application
+python run_webapp.py
+# Then open http://localhost:5000
             </div>
         </div>
     </section>
