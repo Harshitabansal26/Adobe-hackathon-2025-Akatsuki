@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: round1a/Dockerfile
+run:
+  web: python src/pdf_outline_extractor.py
